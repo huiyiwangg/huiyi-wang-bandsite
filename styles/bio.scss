@@ -220,7 +220,6 @@ body{
 
         @include tablet{
             width: 30%;
-
         }
 
         &:hover {
@@ -266,10 +265,16 @@ body{
 
 
         &--header{
-            width: 40%;
+            width: 50%;
+            padding-top: 1rem;
 
-            @include desktop{
-                width: 30%;
+            @include tablet{
+                width: 15.5rem;
+                padding-top: 2.25rem;
+            }
+
+            @include tablet{
+                width: 20rem;
             }
         }
 
