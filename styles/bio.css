@@ -353,11 +353,18 @@ body {
   }
 }
 .footer__social--header {
-  width: 40%;
+  width: 50%;
+  padding-top: 1rem;
 }
-@media screen and (min-width: 80rem) {
+@media screen and (min-width: 48rem) {
   .footer__social--header {
-    width: 30%;
+    width: 15.5rem;
+    padding-top: 2.25rem;
+  }
+}
+@media screen and (min-width: 48rem) {
+  .footer__social--header {
+    width: 20rem;
   }
 }
 .footer__social--site {
