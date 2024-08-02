@@ -1,6 +1,7 @@
 @use './partials/mixins' as *;
 @use './partials/variables' as *;
 @use './partials/global' as *;
+@use './partials/typography' as *;
 
 
 body{
@@ -47,40 +48,41 @@ body{
             align-items: center;
         }
 
+    }
+
+    
         
-        &--item{
-            list-style: none;
-            width: 100%;
-            height: 100%;
-            text-align: center;
+    &__list-item{
+        list-style: none;
+        width: 100%;
+        height: 100%;
+        text-align: center;
 
-            &:hover{
-                font-weight: 400;
-                border-bottom: 0.3rem solid white;
-
-                a{
-                    color: $primary-white;
-                }
-            }
-
-
-        }
-
-        &--item a{
-            text-decoration: none;
-            color: $primary-silver;
-            margin: 1rem;
-            width: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        &a:active{
+        &:hover{
             font-weight: 400;
             border-bottom: 0.3rem solid white;
+
+            a{
+                color: $primary-white;
+            }
         }
 
+
+    }
+
+    &__list-item a{
+        text-decoration: none;
+        color: $primary-silver;
+        margin: 1rem;
+        width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &a:active{
+        font-weight: 400;
+        border-bottom: 0.3rem solid white;
     }
 
     @include tablet {
@@ -90,7 +92,7 @@ body{
     }
 }
 
-.hero-image{
+.hero{
     background: url(../asset/images/hero-bio.jpg);
     background-size: cover;
     position: relative;
@@ -147,7 +149,6 @@ body{
 
     &__text{
         #text-source{
-            font-family: "Avenir";
             font-weight: 700;
             font-size: 0.8125rem;
 
@@ -221,6 +222,104 @@ body{
             filter: grayscale(0);
         }
 
+    }
+}
+
+.comment{
+    display: flex;
+    flex-direction: column;
+
+    &__divider{
+        height: 1px;
+        width: 100%;
+        background-color: #363636;
+        margin: 2px;
+    }
+
+    &__img{
+        max-width: 2.25rem;
+        max-height: 2.25rem;
+        border-radius: 50%;
+
+        @include tablet{
+            max-width: 3rem;
+            max-height: 3rem;
+        }
+    }
+
+    &__input{
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        width: 100%;
+        justify-content: space-around;
+        
+    }
+
+    &__input-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-self: flex-end;
+        justify-self: flex-end;
+
+        button{
+            margin: 1rem 0;
+        }
+    }
+
+    &__area{
+        width: 100%;
+        min-height: 2.25rem;
+        height: 4rem;
+        background-color: $primary-white;
+        border: 0.0625rem solid $primary-silver;
+        padding: 0.75rem;
+        margin-top: 0.25rem;;
+        border-radius: 0.25rem;
+
+            &:focus{
+                border-color: $primary-black;
+                outline: none;
+            }
+
+            &:valid{
+                border-color: $secondary-silver;
+            }
+
+            &:not(:focus):invalid{
+                border-color: $invalid-red;
+            }
+
+            @include tablet{
+                min-height: 3rem;
+                padding: 1rem;
+            }
+
+    }
+
+    &__card{
+        padding: 1rem;
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    &__text-wrapper{
+        display: flex;
+        flex-direction: column;
+    }
+
+
+
+    &__userform{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__date{
+        color: $primary-silver;
     }
 }
 

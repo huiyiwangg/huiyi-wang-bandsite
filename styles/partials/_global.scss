@@ -1,28 +1,8 @@
 @use 'mixins' as *;
 @use 'variables' as *;
+@use 'typography' as *;
 
-@font-face {
-    font-family: 'Avenir';
-    src: url("../asset/fonts/AvenirNextLTPro.ttf") format('truetype');
-}
 
-@font-face {
-    font-family: 'Avenir-bold';
-    src: url("../asset/fonts/AvenirNextLTProBold.ttf") format('truetype');
-}
-
-@font-face {
-    font-family: 'Avenir-demi';
-    src: url("../asset/fonts/AvenirNextLTProDemi.ttf") format('truetype');
-}
-
-// color-variables
-$primary-black: #323232;
-$primary-silver:#afafaf;
-$primary-white: #ffffff;
-$secondary-black:#000000;
-$secondary-silver: #e1e1e1;
-$secondary-white:#fafafa;
 
 *{
     box-sizing: border-box;
@@ -31,7 +11,7 @@ $secondary-white:#fafafa;
 }
 
 body{
-    font-family: 'Avenir';
+    font-family: 'Avenir', sans-serif;
     font-size: 0.81rem;
     line-height: 1.13rem;
     font-weight: 400;
@@ -45,7 +25,6 @@ body{
 h1{
     font-size: 1.5rem;
     line-height: 2rem;
-    font-family: "Avenir-bold";
     font-weight: 700;
     padding: 1.5rem 0 1rem 0;
     @include tablet{
@@ -58,12 +37,10 @@ h1{
 h2{
     font-size: 1.5rem;
     line-height: 2rem;
-    font-family: "Avenir-bold";
     font-weight: 700;
     padding: 1.5rem 0 1rem 0;
     @include tablet{
         font-size: 2.25rem;
-        font-family: "Avenir";
         line-height: 2.75rem;
         padding: 3rem 0 2.25rem 0;
         }
@@ -72,7 +49,6 @@ h2{
 h3{
     font-size: 0.875rem;
     line-height: 1.375rem;
-    font-family: "Avenir-demi";
     font-weight: 600;
     padding: 1.5rem 0 1rem 0;
     @include tablet{
@@ -84,13 +60,13 @@ h3{
 
 button{
     color: $primary-white;
-    font-family: "Avenir-bold";
     font-size: 0.625rem;
     line-height: 1.25rem;
-    background: $primary-silver;
+    background: $primary-black;
     max-height: 2rem;
+    font-weight: 700;
+    font-family: 'Avenir', sans-serif;
     min-width: 9.375rem;
-    padding: 0 2.0625em 0 2.0625em;
     border-radius: 0.25rem;
     @include tablet{
         font-size: 0.75rem;
@@ -102,7 +78,7 @@ button{
 label{
     font-size: 0.625rem;
     line-height: 1.25rem;
-    font-family: "Avenir-bold";
+    text-transform: capitalize;
     @include tablet{
         font-size: 0.75rem;
         line-height: 1.25rem;
