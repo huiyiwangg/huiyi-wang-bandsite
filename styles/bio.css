@@ -78,12 +78,15 @@ button {
   color: #ffffff;
   font-size: 0.625rem;
   line-height: 1.25rem;
-  background: #323232;
+  background-color: #323232;
   max-height: 2rem;
   font-weight: 700;
   font-family: "Avenir", sans-serif;
   min-width: 9.375rem;
   border-radius: 0.25rem;
+}
+button:hover {
+  background: #000000;
 }
 @media screen and (min-width: 48rem) {
   button {
@@ -96,6 +99,8 @@ button {
 label {
   font-size: 0.625rem;
   line-height: 1.25rem;
+  font-weight: 600;
+  color: #afafaf;
   text-transform: capitalize;
 }
 @media screen and (min-width: 48rem) {
@@ -124,6 +129,10 @@ label {
 .sitelogo {
   max-width: 7.5rem;
   max-height: 1.25rem;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -291,6 +300,8 @@ body {
 .gallery__container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-content: center;
   gap: 1rem;
   padding-bottom: 1rem;
 }
@@ -327,32 +338,50 @@ body {
   margin: 2px;
 }
 .comment__img {
-  max-width: 2.25rem;
-  max-height: 2.25rem;
+  width: 2.25rem;
+  height: 2.25rem;
   border-radius: 50%;
+  margin-top: 1rem;
+  flex-shrink: 0;
 }
 @media screen and (min-width: 48rem) {
   .comment__img {
-    max-width: 3rem;
-    max-height: 3rem;
+    width: 3rem;
+    height: 3rem;
+    margin-top: 2rem;
+    align-self: flex-start;
   }
+}
+.comment__userform {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
 }
 .comment__input {
   display: flex;
   flex-direction: row;
   margin: 0;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  border-bottom: 0.0625rem solid #afafaf;
 }
 .comment__input-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 95%;
   align-self: flex-end;
   justify-self: flex-end;
+  padding: auto;
 }
 .comment__input-container button {
   margin: 1rem 0;
+  width: 100%;
+}
+@media screen and (min-width: 48rem) {
+  .comment__input-container button {
+    width: 30%;
+    align-self: flex-end;
+  }
 }
 .comment__area {
   width: 100%;
@@ -368,6 +397,9 @@ body {
   border-color: #323232;
   outline: none;
 }
+.comment__area:hover {
+  border-color: aquamarine;
+}
 .comment__area:valid {
   border-color: #e1e1e1;
 }
@@ -380,20 +412,62 @@ body {
     padding: 1rem;
   }
 }
+.comment__display {
+  width: 100%;
+  overflow: hidden;
+}
 .comment__card {
-  padding: 1rem;
-  list-style: none;
   display: flex;
   flex-direction: row;
   width: 100%;
+  gap: 1rem;
+  border-bottom: 0.0625rem solid #e1e1e1;
+  margin: 0 1rem 1rem 1rem;
+  justify-content: space-between;
+  position: relative;
+}
+@media screen and (min-width: 48rem) {
+  .comment__card {
+    margin: 0;
+  }
+}
+.comment__card-image {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background-color: #e1e1e1;
+  margin-top: 1rem;
+  flex-shrink: 0;
+}
+@media screen and (min-width: 48rem) {
+  .comment__card-image {
+    width: 3rem;
+    height: 3rem;
+    margin: 2rem 0 2rem 4rem;
+    align-self: flex-start;
+  }
+}
+.comment__right-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+@media screen and (min-width: 48rem) {
+  .comment__right-container {
+    width: 80%;
+  }
+}
+.comment__text {
+  width: 90%;
+  padding-bottom: 1rem;
 }
 .comment__text-wrapper {
   display: flex;
-  flex-direction: column;
-}
-.comment__userform {
-  display: flex;
-  flex-direction: column;
+  align-content: center;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
 }
 .comment__date {
   color: #afafaf;

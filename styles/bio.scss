@@ -3,6 +3,9 @@
 @use './partials/global' as *;
 @use './partials/typography' as *;
 
+*{
+    box-sizing: border-box;
+}
 
 body{
     height: 100%;
@@ -198,6 +201,8 @@ body{
     &__container{
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-content: center;
         gap: 1rem;
         padding-bottom: 1rem;
 
@@ -228,6 +233,7 @@ body{
 .comment{
     display: flex;
     flex-direction: column;
+    // padding: 0 1rem;
 
     &__divider{
         height: 1px;
@@ -237,14 +243,24 @@ body{
     }
 
     &__img{
-        max-width: 2.25rem;
-        max-height: 2.25rem;
+        width: 2.25rem;
+        height: 2.25rem;
         border-radius: 50%;
+        margin-top: 1rem;
+        flex-shrink: 0;
 
         @include tablet{
-            max-width: 3rem;
-            max-height: 3rem;
+            width: 3rem;
+            height: 3rem;
+            margin-top: 2rem;
+            align-self: flex-start;
         }
+    }
+
+    &__userform{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
     }
 
     &__input{
@@ -252,19 +268,27 @@ body{
         flex-direction: row;
         margin: 0;
         width: 100%;
-        justify-content: space-around;
+        justify-content: space-evenly;
+        border-bottom: 0.0625rem solid $primary-silver;
         
     }
 
     &__input-container{
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 95%;
         align-self: flex-end;
         justify-self: flex-end;
+        padding: auto;
 
         button{
             margin: 1rem 0;
+            width: 100%;
+
+            @include tablet{
+                width: 30%;
+                align-self: flex-end;
+            }
         }
     }
 
@@ -283,6 +307,10 @@ body{
                 outline: none;
             }
 
+            &:hover{
+                border-color: aquamarine;
+            }
+
             &:valid{
                 border-color: $secondary-silver;
             }
@@ -298,25 +326,69 @@ body{
 
     }
 
+    &__display{
+        width: 100%;
+        overflow: hidden;
+    }
+
     &__card{
-        padding: 1rem;
-        list-style: none;
         display: flex;
         flex-direction: row;
         width: 100%;
+        gap: 1rem;
+        border-bottom: 0.0625rem solid $secondary-silver;
+        margin: 0 1rem 1rem 1rem;
+        justify-content: space-between;
+        position: relative;
+
+        @include tablet {
+            margin: 0;
+        }
+
+    }
+
+    &__card-image{
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 50%;
+        background-color: $secondary-silver;
+        margin-top: 1rem;
+        flex-shrink: 0;
+
+        @include tablet{
+            width: 3rem;
+            height: 3rem;
+            margin: 2rem 0 2rem 4rem;
+            align-self: flex-start;
+        }
+    }
+
+    &__right-container{
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        box-sizing: border-box;
+
+        @include tablet{
+            width: 80%;
+        }
+        
+
+    }
+
+    &__text{
+        width: 90%;
+        padding-bottom: 1rem;
     }
 
     &__text-wrapper{
         display: flex;
-        flex-direction: column;
+        align-content: center;
+        width: 90%;
+        justify-content: space-between;
+        align-items: center;
     }
 
-
-
-    &__userform{
-        display: flex;
-        flex-direction: column;
-    }
 
     &__date{
         color: $primary-silver;

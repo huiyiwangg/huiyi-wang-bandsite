@@ -78,12 +78,15 @@ button {
   color: #ffffff;
   font-size: 0.625rem;
   line-height: 1.25rem;
-  background: #323232;
+  background-color: #323232;
   max-height: 2rem;
   font-weight: 700;
   font-family: "Avenir", sans-serif;
   min-width: 9.375rem;
   border-radius: 0.25rem;
+}
+button:hover {
+  background: #000000;
 }
 @media screen and (min-width: 48rem) {
   button {
@@ -96,6 +99,8 @@ button {
 label {
   font-size: 0.625rem;
   line-height: 1.25rem;
+  font-weight: 600;
+  color: #afafaf;
   text-transform: capitalize;
 }
 @media screen and (min-width: 48rem) {
@@ -124,6 +129,10 @@ label {
 .sitelogo {
   max-width: 7.5rem;
   max-height: 1.25rem;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -202,12 +211,13 @@ body {
 }
 
 .hero {
-  background: url(../asset/images/Photo-gallery-3.jpg);
+  background: url(../asset/images/hero-shows.jpg);
   background-size: cover;
   position: relative;
-  height: 40vh;
+  height: 50vh;
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-top: 0;
   overflow: hidden;
@@ -223,6 +233,17 @@ body {
   background: rgba(50, 50, 50, 0.5);
   z-index: 1;
 }
+@media screen and (min-width: 48rem) {
+  .hero {
+    height: 55vh;
+  }
+}
+@media screen and (min-width: 80rem) {
+  .hero {
+    flex-direction: row;
+    height: 65vh;
+  }
+}
 .hero__text {
   padding-left: 1rem;
   color: #ffffff;
@@ -230,6 +251,83 @@ body {
 }
 .hero__text--detail {
   width: 60%;
+  padding-top: 0;
+}
+@media screen and (min-width: 48rem) {
+  .hero__text--detail {
+    width: 75%;
+  }
+}
+.hero__song {
+  position: relative;
+  z-index: 3;
+  width: 80%;
+  height: auto;
+}
+@media screen and (min-width: 48rem) {
+  .hero__song {
+    width: 50%;
+    align-self: flex-start;
+    margin: 1rem;
+  }
+}
+@media screen and (min-width: 80rem) {
+  .hero__song {
+    width: 30%;
+    align-self: center;
+    margin: 1rem;
+  }
+}
+
+.shows {
+  width: 100%;
+}
+.shows__container {
+  width: 100%;
+  position: relative;
+}
+.shows__card {
+  width: 100%;
+  border-bottom: 0.0625rem solid #e1e1e1;
+}
+.shows__card:hover {
+  background-color: #e1e1e1;
+}
+@media screen and (min-width: 48rem) {
+  .shows__card {
+    display: flex;
+    flex-direction: row;
+  }
+}
+.shows__subtitle {
+  font-weight: 600;
+  color: #afafaf;
+}
+.shows__sub-container {
+  margin: 1rem 0;
+}
+@media screen and (min-width: 48rem) {
+  .shows__sub-container {
+    width: 100%;
+  }
+}
+.shows__date {
+  font-weight: 600;
+}
+.shows button {
+  width: 100%;
+  font-size: 0.9rem;
+  font-weight: 600;
+  height: 2rem;
+  margin-bottom: 1rem;
+  z-index: 3;
+}
+@media screen and (min-width: 48rem) {
+  .shows button {
+    width: 20%;
+    align-self: center;
+    justify-self: flex-end;
+  }
 }
 
 .footer {
