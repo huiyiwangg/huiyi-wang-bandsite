@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="./styles/bio.css" rel="stylesheet" />
+    <script src="./scripts/index-page.js" defer></script>
     <style>
     </style>
 </head>
@@ -12,17 +13,17 @@
     <section class="nav__background">
         <div class="nav container">
             <div class="nav__logo">
-                <a href="/index.html"><img class="nav__logo--image sitelogo" src="./asset/logos/Logo-bandsite.svg" alt="band"></a>
+                <a href="/index.html"><img class="nav__logo--image sitelogo" src="./asset/logos/Logo-bandsite.svg" alt= "band bees"></a>
             </div>
             <ul class="nav__list">
-                <li class="nav__list--item"><a href="/index.html">Biography</a></li>
-                <li class="nav__list--item"><a href="#">Shows</a></li>
+                <li class="nav__list-item active"><a href="/index.html">Biography</a></li>
+                <li class="nav__list-item"><a href="./pages/shows.html">Shows</a></li>
             </ul>
         </div>
     </section>
 
-    <section class="hero-image">
-        <div class="hero-image__text">
+    <section class="hero">
+        <div class="hero__text">
             <h1>The Bees Knees</h1>
         </div>
     </section>
@@ -32,12 +33,12 @@
         <div class="intro__header"><h2>About the Musicians</h2></div>
 
         <div class="intro__details--container">
-            <div class="intro__image-container"><img class="intro__image" src="/asset/images/band.jpg" alt="band"></div>
+            <div class="intro__image-container"><img class="intro__image" src="/asset/images/band.jpg" alt= "band performanace"></div>
             <div class="intro__text">
                 <h3 class="intro__text--headline">
                     "We push each other to be the best. It’s not uncommon for one of us to say ‘this needs to be better, back to the drawing board’”
-                    <br>
-                    <span id="text-source">- Lead vocalist of The Bees Knees</span>
+                </h3>
+                <h3 id="text-source">- Lead vocalist of The Bees Knees
                 </h3>
             
                 <h3 class="intro__text--band">The Bees Knees</h3>
@@ -82,16 +83,39 @@
         <div class="gallary container">
             <h2 class="gallery__header">Photo Gallery</h2>
             <div class="gallery__container">
-                <img class="gallery__image" src="./asset/images/Photo-gallery-1.jpg" alt="bandimage1">
-                <img class="gallery__image" src="./asset/images/Photo-gallery-2.jpg" alt="bandimage2">
-                <img class="gallery__image" src="./asset/images/Photo-gallery-3.jpg" alt="bandimage3">
-                <img class="gallery__image" src="./asset/images/Photo-gallery-4.jpg" alt="bandimage4">
-                <img class="gallery__image" src="./asset/images/Photo-gallery-5.jpg" alt="bandimage5">
-                <img class="gallery__image" src="./asset/images/Photo-gallery-6.jpg" alt="bandimage6">
-                <img class="gallery__image" src="./asset/images/Photo-gallery-7.jpg" alt="bandimage7">
-                <img class="gallery__image" src="./asset/images/Photo-gallery-8.jpg" alt="bandimage8">
-                <img class="gallery__image" src="./asset/images/Photo-gallery-9.jpg" alt="bandimage9">
+                <img class="gallery__image" src="./asset/images/Photo-gallery-1.jpg" alt= "hands waving among show">
+                <img class="gallery__image" src="./asset/images/Photo-gallery-2.jpg" alt= "female dancing on stage">
+                <img class="gallery__image" src="./asset/images/Photo-gallery-3.jpg" alt= "audiences waiving hands at concert">
+                <img class="gallery__image" src="./asset/images/Photo-gallery-4.jpg" alt= "female singer backstage shot">
+                <img class="gallery__image" src="./asset/images/Photo-gallery-5.jpg" alt= "firework at concert">
+                <img class="gallery__image" src="./asset/images/Photo-gallery-6.jpg" alt= "male singer on stage">
+                <img class="gallery__image" src="./asset/images/Photo-gallery-7.jpg" alt= "live concert and rainbow light">
+                <img class="gallery__image" src="./asset/images/Photo-gallery-8.jpg" alt= "live DJ perfroming">
+                <img class="gallery__image" src="./asset/images/Photo-gallery-9.jpg" alt= "crowd cheering">
             </div>
+        </div>
+    </section>
+
+    <section class="comment__background">
+        <div class="comment container">
+            <h2>Join the Conversation</h2>
+            <div class="comment__input">
+                <img class="comment__img" src="./asset/images/Mohan-muruge.jpg" alt= "commenter">
+                <form id="user-form" class="comment__userform">
+                    <section class="comment__input-container">
+                        <label>
+                            NAME
+                            <input id="name-section" class="comment__area" name="userName" type="text" placeholder="Enter your name" required>
+                        </label>
+                        <label>
+                            COMMENT
+                            <input class="comment__area" name="userComment" type="text" placeholder="Add a new comment" required>
+                        </label>
+                        <button type="submit">COMMENT</button>
+                    </section>
+                </form>
+            </div>
+            <div id="mycomment" class="comment__display">
         </div>
     </section>
 
@@ -112,29 +136,22 @@
                 </div>
                 <img class="footer__social--site sitelogo" src="./asset/logos/Logo-bandsite.svg" alt="band">
             </div>
-
             <div class="footer__company--container">
                 <div class="footer__company">
                     <p class="footer__company--detail">The Bees Knees Management</p>
-                    <p class="footer__company-address">
-                        503 Broadway Penthouse,<br>
-                        New York, NY 10012, USA</p>
+                    <p class="footer__company-address">503 Broadway Penthouse, New York, NY 10012, USA</p>
                     <a href="mailto:info@thebeeskness.com" class="footer__company--email">info@thebeeskness.com</a>
                 </div>
 
                 <div class="footer__company">
                     <p class="footer__company--detail">Limitless Artist Group</p>
-                    <p class="footer__company-address">
-                        Booking Agent for<br>
-                        US / South America / Japan</p>
+                    <p class="footer__company-address">Booking Agent for US / South America / Japan</p>
                     <a href="mailto:bookings@limitlessag.com" class="footer__company--email">bookings@limitlessag.com</a>
                 </div>
 
                 <div class="footer__company">
                     <p class="footer__company--detail">ARCH Entertainment</p>
-                    <p class="footer__company-address">
-                        Booking Agent for<br>
-                        UK / EU / AU</p>
+                    <p class="footer__company-address">Booking Agent for UK / EU / AU</p>
                     <a href="mailto:bookings@archentertainment.com" class="footer__company--email">bookings@archentertainment.com</a>
                 </div>
             </div>

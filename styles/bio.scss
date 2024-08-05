@@ -1,367 +1,519 @@
-@use './partials/mixins' as *;
-@use './partials/variables' as *;
-@use './partials/global' as *;
+@use "./partials/mixins" as *;
+@use "./partials/variables" as *;
+@use "./partials/global" as *;
+@use "./partials/typography" as *;
 
-// @font-face {
-//     font-family: 'Avenir';
-//     src: url(../asset/fonts/AvenirNextLTPro-Regular.otf) format('opentype');
-// }
-
-
-body{
-    height: 100%;
+*,*::before,
+*::after{
+  box-sizing: border-box;
 }
 
-.nav{
-    background: $primary-black;
-    color: $primary-white;
-    height: 100%;
+body {
+  height: 100%;
+}
+
+.nav {
+  background: $primary-black;
+  color: $primary-white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+
+  &__background {
+    background-color: $primary-black;
+  }
+
+  &__logo {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    height: auto;
+
+    &--image {
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
     padding: 0;
-
-    &__background{
-        background-color: $primary-black;
-    }
-
-
-    &__logo{
-        display: flex;
-        justify-content: center;
-        align-items:center;
-        padding: 1rem;
-        height: auto;
-
-        &--image{
-            height: auto;
-            width: 100%;
-        }
-    }
-
-    &__list{
-        display: flex;
-        justify-content: space-evenly;
-        width: 100%;
-        padding: 0;
-        margin: auto;
-
-        @include tablet{
-            width: 30%;
-            justify-content: center;
-            margin: 0;
-            align-items: center;
-        }
-
-        
-        &--item{
-            list-style: none;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-
-            &:hover{
-                font-weight: 400;
-                border-bottom: 0.3rem solid white;
-
-                a{
-                    color: $primary-white;
-                }
-            }
-
-
-        }
-
-        &--item a{
-            text-decoration: none;
-            color: $primary-silver;
-            margin: 1rem;
-            width: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        &a:active{
-            font-weight: 400;
-            border-bottom: 0.3rem solid white;
-        }
-
-    }
+    margin: auto;
 
     @include tablet {
-        flex-direction: row;
-        width: 100%;
-        margin: 0;
+      width: 30%;
+      justify-content: center;
+      margin: 0;
+      align-items: center;
     }
+  }
+
+  &__list-item {
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 1rem;
+
+    &:hover, &.active {
+      font-weight: 400;
+      border-bottom: 0.3rem solid white;
+
+      a {
+        color: $primary-white;
+      }
+    }
+  }
+
+  &__list-item a {
+    text-decoration: none;
+    color: $primary-silver;
+    margin: 1rem;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include tablet {
+    flex-direction: row;
+    width: 100%;
+    margin: 0;
+  }
+
+
 }
 
-.hero-image{
-    background: url(../asset/images/hero-bio.jpg);
+.hero {
+  background: url(../asset/images/hero-bio.jpg);
+  background-size: cover;
+  position: relative;
+  height: 40vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  overflow: hidden;
+  max-width: 100%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(50, 50, 50, 0.5);
+    z-index: 1;
+  }
+
+  &__text {
+    padding-left: 1rem;
+    color: $primary-white;
+    z-index: 2;
+  }
+}
+
+.intro {
+  &__details--container {
+    padding-bottom: 1rem;
+
+    @include tablet {
+      padding: 1rem 3rem;
+    }
+  }
+
+  &__image-container {
     background-size: cover;
     position: relative;
-    height: 40vh;
+    height: auto;
     width: 100%;
     display: flex;
     align-items: center;
     margin-top: 0;
     overflow: hidden;
-    max-width:100%;
+  }
 
-    &::before{
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background: rgba(50, 50, 50, 0.5);
-        z-index: 1;
+  &__image {
+    width: 100%;
+  }
+
+  &__text {
+    #text-source {
+      font-weight: 700;
+      font-size: 0.8125rem;
+
+      @include tablet {
+        font-size: 0.875rem;
+      }
     }
 
-
-    &__text{
-        padding-left: 1rem;
-        color: $primary-white;
-        z-index: 2;
+    &--headline {
+      padding: 0;
+      padding: 0.75rem;
     }
+
+    &--detail {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      @include tablet {
+        flex-direction: row;
+      }
+    }
+  }
 }
-
-.intro{
-    &__details--container {
-        padding-bottom: 1rem;
-
-        @include tablet{
-            padding: 1rem 3rem;
-        }
-    }
-
-    &__image-container{
-        background-size: cover;
-        position: relative;
-        height: auto;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        margin-top: 0;
-        overflow: hidden;
-    }
-
-    &__image{
-        width: 100%;
-    }
-
-    &__text{
-        #text-source{
-            font-family: "Avenir";
-            font-weight: 700;
-            font-size: 0.8125rem;
-
-            @include tablet{
-                font-size: 0.875rem;
-            }
-        }
-
-        &--headline{
-            padding: 0;
-            padding: 0.75rem;
-        }
-
-        &--detail{
-            width: 100%;
-            height: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-
-            @include tablet{
-                flex-direction: row;
-            }
-        }
-
-    }
-
-
-}
-
 
 .gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__header {
+    padding-left: 0;
+  }
+
+  &__background {
+    background-color: $secondary-silver;
+  }
+
+  &__container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-content: center;
+    gap: 1.67rem;
+    padding-bottom: 2rem;
 
-    
-    &__header{
-        padding-left: 0;
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    filter: grayscale(0.8);
+
+    @include tablet {
+      width: 30%;
     }
 
-    &__background{
-        background-color: $secondary-silver;
+    &:hover {
+      filter: grayscale(0);
     }
-
-    &__container{
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        padding-bottom: 1rem;
-
-        @include tablet{
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-        }
-    }
-
-    &__image{
-        width: 100%;
-        height: auto;
-        filter: grayscale(0.8);
-
-        @include tablet{
-            width: 30%;
-        }
-
-        &:hover {
-            filter: grayscale(0);
-        }
-
-    }
+  }
 }
 
-.footer{
-    color: $primary-white;
+.comment {
+  display: flex;
+  flex-direction: column;
+  // padding: 0 1rem;
+
+  &__divider {
+    height: 1px;
     width: 100%;
+    background-color: #363636;
+    margin: 2px;
+  }
+
+  &__img {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    margin-top: 1rem;
+    flex-shrink: 0;
+
+    @include tablet {
+      width: 3rem;
+      height: 3rem;
+      margin-top: 2rem;
+      align-self: flex-start;
+    }
+  }
+
+  &__userform {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    width: 100%;
+    justify-content: space-evenly;
+    border-bottom: 0.0625rem solid $primary-silver;
+  }
+
+  &__input-container {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    align-self: flex-end;
+    justify-self: flex-end;
+    padding: auto;
+
+    button {
+      margin: 1rem 0;
+      width: 100%;
+
+      @include tablet {
+        width: 30%;
+        align-self: flex-end;
+      }
+    }
+  }
+
+  &__area {
+    width: 100%;
+    min-height: 2.25rem;
+    height: 4rem;
+    background-color: $secondary-white;
+    border: 0.0625rem solid $secondary-silver;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+
+    &:valid {
+      border-color: $secondary-silver;
+    }
+
+    &:invalid {
+      border-color: $invalid-red;
+    }
+    
+    &:hover,
+    &:focus {
+      border-color: $primary-black;
+      outline: none;
+    }
+
+    @include tablet {
+      min-height: 3rem;
+      padding: 1rem;
+    }
+  }
+
+  #name-section{
+    height: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__display {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 1rem;
+    border-bottom: 0.0625rem solid $secondary-silver;
+    margin: 0 1rem 1rem 1rem;
+    justify-content: space-between;
+    position: relative;
+    overflow: auto;
+
+    @include tablet {
+      margin: 0;
+    }
+  }
+
+  &__card-image {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background-color: $secondary-silver;
+    margin-top: 1rem;
+    flex-shrink: 0;
+
+    @include tablet {
+      width: 3rem;
+      height: 3rem;
+      margin: 2rem 0 2rem 2rem;
+      align-self: flex-start;
+    }
+
+    @include desktop{
+      margin: 2rem 0 2rem 4rem;
+    }
+  }
+
+  &__right-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    @include tablet {
+      width: 80%;
+    }
+  }
+
+  &__text {
+    width: 90%;
+    padding-bottom: 1rem;
+  }
+
+  &__text-wrapper {
+    display: flex;
+    align-content: center;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__date {
+    color: $primary-silver;
+  }
+}
+
+.footer {
+  color: $primary-white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  position: relative;
+
+  @include tablet {
+    padding-bottom: 2.25rem;
+  }
+
+  &__background {
+    background: $primary-black;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+  }
+
+  &__social {
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    @include tablet {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &--header {
+      width: 50%;
+      padding-top: 1rem;
+
+      @include tablet {
+        width: 15.5rem;
+        padding-top: 2.25rem;
+      }
+
+      @include tablet {
+        width: 20rem;
+      }
+    }
+
+    &--site {
+      display: none;
+
+      @include tablet {
+        display: flex;
+        margin-left: auto;
+        justify-self: flex-end;
+      }
+    }
+  }
+
+  &__media {
+    width: 10%;
+    flex-direction: row;
+
+    &--container {
+      width: 25%;
+      height: auto;
+      justify-content: space-between;
+      display: flex;
+      flex-direction: row;
+      @include tablet {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 2em;
+      }
+    }
+
+    &--logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__company--container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding-bottom: 1rem;
+    width: 100%;
     position: relative;
 
-        @include tablet{
-            padding-bottom: 2.25rem; 
-        }
-
-
-    &__background{
-        background: $primary-black;
-        display: flex;
-        align-items: center;
-        justify-items: center;
-        width: 100%;
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
     }
 
-    &__social{
-        display: flex;
-        width: 100%;
-        height: auto;
-        flex-direction: column;
-        justify-content: flex-start;
-
-        @include tablet{
-            flex-direction: row;
-            align-items: center;
-        }
-
-
-        &--header{
-            width: 50%;
-            padding-top: 1rem;
-
-            @include tablet{
-                width: 15.5rem;
-                padding-top: 2.25rem;
-            }
-
-            @include tablet{
-                width: 20rem;
-            }
-        }
-
-        &--site{
-            display: none;
-    
-            @include tablet{
-                display: flex;
-                margin-left: auto;
-                justify-self: flex-end;
-            }
-        }
-    
+    @include desktop {
+      width: 70%;
     }
+  }
 
-    &__media{
-        width: 10%;
-        flex-direction: row;
+  &__company {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 
-        
-        &--container{
-            width: 25%;
-            height: auto;
-            justify-content: space-between;
-            display: flex;
-            flex-direction: row;
-            @include tablet{
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                gap: 2em;
-            }
-        }
+    &-address{
+      width: 40%;
 
-        &--logo{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+      @include tablet{
+        width: 60%;
+      }
     }
 
 
-
-    &__company--container{
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        width: 100%;
-        position: relative;
-
-        @include tablet{
-            flex-direction: row;
-            justify-content: space-between;
-        }
-
-        @include desktop{
-            width: 70%;
-        }
-
+    &--detail {
+      font-weight: 700;
     }
 
-    &__company{
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-
-
-        &--detail{
-            font-weight: 700;
-        }
-
-        a {
-            text-decoration: none;
-            color: $primary-white;
-        }
+    a {
+      text-decoration: none;
+      color: $primary-white;
     }
+  }
 
-    &_copyright--container{
-        position: relative;
+  &_copyright--container {
+    position: relative;
+  }
+
+  &__logo {
+    margin: 1rem 0 1rem 0;
+
+    @include tablet {
+      display: none;
     }
-
-    &__logo {
-        margin: 1rem 0 1rem 0;
-
-        @include tablet{
-            display: none;
-        }
-    }
-
+  }
 }
