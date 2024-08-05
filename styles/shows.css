@@ -181,12 +181,13 @@ body {
   width: 100%;
   height: 100%;
   text-align: center;
+  font-size: 1rem;
 }
-.nav__list--item:hover {
+.nav__list--item:hover, .nav__list--item.active {
   font-weight: 400;
   border-bottom: 0.3rem solid white;
 }
-.nav__list--item:hover a {
+.nav__list--item:hover a, .nav__list--item.active a {
   color: #ffffff;
 }
 .nav__list--item a {
@@ -214,7 +215,7 @@ body {
   background: url(../asset/images/hero-shows.jpg);
   background-size: cover;
   position: relative;
-  height: 50vh;
+  height: 55vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -235,7 +236,7 @@ body {
 }
 @media screen and (min-width: 48rem) {
   .hero {
-    height: 55vh;
+    height: 60vh;
   }
 }
 @media screen and (min-width: 80rem) {
@@ -245,8 +246,8 @@ body {
   }
 }
 .hero__text {
-  padding-left: 1rem;
   color: #ffffff;
+  width: 100%;
   z-index: 2;
 }
 .hero__text--detail {
@@ -261,7 +262,7 @@ body {
 .hero__song {
   position: relative;
   z-index: 3;
-  width: 80%;
+  width: 100%;
   height: auto;
 }
 @media screen and (min-width: 48rem) {
@@ -438,6 +439,14 @@ body {
 }
 .footer__company--detail {
   font-weight: 700;
+}
+.footer__company-address {
+  width: 40%;
+}
+@media screen and (min-width: 48rem) {
+  .footer__company-address {
+    width: 60%;
+  }
 }
 .footer__company a {
   text-decoration: none;

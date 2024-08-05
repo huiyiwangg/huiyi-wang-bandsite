@@ -131,7 +131,8 @@ label {
   max-height: 1.25rem;
 }
 
-* {
+*, *::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -181,12 +182,13 @@ body {
   width: 100%;
   height: 100%;
   text-align: center;
+  font-size: 1rem;
 }
-.nav__list-item:hover {
+.nav__list-item:hover, .nav__list-item.active {
   font-weight: 400;
   border-bottom: 0.3rem solid white;
 }
-.nav__list-item:hover a {
+.nav__list-item:hover a, .nav__list-item.active a {
   color: #ffffff;
 }
 .nav__list-item a {
@@ -197,10 +199,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.nava:active {
-  font-weight: 400;
-  border-bottom: 0.3rem solid white;
 }
 @media screen and (min-width: 48rem) {
   .nav {
@@ -302,8 +300,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  gap: 1rem;
-  padding-bottom: 1rem;
+  gap: 1.67rem;
+  padding-bottom: 2rem;
 }
 @media screen and (min-width: 48rem) {
   .gallery__container {
@@ -387,30 +385,30 @@ body {
   width: 100%;
   min-height: 2.25rem;
   height: 4rem;
-  background-color: #ffffff;
-  border: 0.0625rem solid #afafaf;
+  background-color: #fafafa;
+  border: 0.0625rem solid #e1e1e1;
   padding: 0.75rem;
-  margin-top: 0.25rem;
   border-radius: 0.25rem;
-}
-.comment__area:focus {
-  border-color: #323232;
-  outline: none;
-}
-.comment__area:hover {
-  border-color: aquamarine;
 }
 .comment__area:valid {
   border-color: #e1e1e1;
 }
-.comment__area:not(:focus):invalid {
+.comment__area:invalid {
   border-color: #D22D2D;
+}
+.comment__area:hover, .comment__area:focus {
+  border-color: #323232;
+  outline: none;
 }
 @media screen and (min-width: 48rem) {
   .comment__area {
     min-height: 3rem;
     padding: 1rem;
   }
+}
+.comment #name-section {
+  height: 1rem;
+  margin-bottom: 1rem;
 }
 .comment__display {
   width: 100%;
@@ -425,6 +423,7 @@ body {
   margin: 0 1rem 1rem 1rem;
   justify-content: space-between;
   position: relative;
+  overflow: auto;
 }
 @media screen and (min-width: 48rem) {
   .comment__card {
@@ -443,8 +442,13 @@ body {
   .comment__card-image {
     width: 3rem;
     height: 3rem;
-    margin: 2rem 0 2rem 4rem;
+    margin: 2rem 0 2rem 2rem;
     align-self: flex-start;
+  }
+}
+@media screen and (min-width: 80rem) {
+  .comment__card-image {
+    margin: 2rem 0 2rem 4rem;
   }
 }
 .comment__right-container {
@@ -578,6 +582,14 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+.footer__company-address {
+  width: 40%;
+}
+@media screen and (min-width: 48rem) {
+  .footer__company-address {
+    width: 60%;
+  }
 }
 .footer__company--detail {
   font-weight: 700;

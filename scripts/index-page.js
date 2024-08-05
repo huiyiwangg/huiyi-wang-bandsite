@@ -1,3 +1,4 @@
+// comment
 const users = [
     {name: 'Victor Pinto',
     date:'11/02/2023', 
@@ -74,15 +75,16 @@ function handleFormSubmit(e){
         name: e.target.userName.value,
         date: new Date().toLocaleDateString('en-US'),
         comment: e.target.userComment.value,
-        image:'"./asset/images/Mohan-muruge.jpg',
-        note: 'current comment profile pic'
     }
 
 
-users.push(cardData);
-users.sort((a,b) =>new Date(b.date) - new Date(a.date));
-console.log(users);
-renderUser();
+    users.push(cardData);
+    users.sort((a,b) =>new Date(b.date) - new Date(a.date));
+    console.log(users);
+    renderUser();
+
+    e.target.userName.value = '';
+    e.target.userComment.value = '';
 }
 
 const formEl = document.getElementById('user-form');
