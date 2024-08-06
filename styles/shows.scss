@@ -93,7 +93,7 @@ body {
   background: url(../asset/images/hero-shows.jpg);
   background-size: cover;
   position: relative;
-  height: 55vh;
+  height: 40vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -142,6 +142,13 @@ body {
     z-index: 3;
     width: 100%;
     height: auto;
+    height: 11rem;
+
+    iframe{
+      width: 100%;
+      border: none;
+      overflow-x: hidden;
+    }
 
     @include tablet {
       width: 50%;
@@ -150,7 +157,6 @@ body {
     }
 
     @include desktop {
-      width: 30%;
       align-self: center;
       margin: 1rem;
     }
