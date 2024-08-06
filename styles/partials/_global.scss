@@ -76,8 +76,9 @@ button{
     @include tablet{
         font-size: 0.75rem;
         line-height: 1.25rem;
-        background-color: $secondary-black;
+        background-color: $primary-black;
         }
+    
 }
 
 label{
