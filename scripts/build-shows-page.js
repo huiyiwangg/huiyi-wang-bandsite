@@ -1,16 +1,20 @@
+import BandSiteApi from "../scripts/band-site-api.js";
+
 let thing = new BandSiteApi();
 
-(async ()=>{
+const showEl = createDiv('shows__card');
+
+async function fetchAndRenderShows(){
     const shows = await thing.getShows();
-    // console.log(shows)
+
     function render() {
-        listEl.innerHTML = '';
+        listEl.innerText = '';
         shows.forEach(displayShow);
     } 
     
     render();    
 }
-)()
+fetchAndRenderShows()
 
 
 function createDiv(className, text = "") {
@@ -23,7 +27,6 @@ function createDiv(className, text = "") {
 const listEl=document.getElementsByClassName('shows__container')[0];
 
 function displayShow(show) {
-    const showEl = createDiv('shows__card');
 
     const dateContainer = createDiv('shows__sub-container');
     const dateTitleEl = createDiv('shows__subtitle','DATE');

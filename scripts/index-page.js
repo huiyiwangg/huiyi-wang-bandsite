@@ -1,26 +1,35 @@
-// comment
-const users = [
-    {name: 'Victor Pinto',
-    date:'11/02/2023', 
-    comment: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains",
+import BandSiteApi from "../scripts/band-site-api.js";
 
-    },
-    {name: 'Christina Cabrera',
-    date:'10/28/2023', 
-    comment: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-    },
-    {name: 'Isaac Tadesse',
-    date:'10/20/2023', 
-    comment: "I can t stop listening. Every time I hear one of their songs the vocals it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can t get enough",
-    },
-]
+let thing = new BandSiteApi();
+
+const cardEl = document.getElementById('mycomment');
+
+let users =[];
+
+async function fetchAndRenderComments(){
+    const comments = await thing.getComments();
+    console.log(comments);
+
+    users = comments;
+
+    function render() {
+        cardEl.innerText = '';
+        comments.forEach((comment)=>{
+            const commentCard = createCommentCard(comment);
+            cardEl.appendChild(commentCard);
+        });
+    } 
+    
+    render();    
+}
+
+fetchAndRenderComments()
+
 
 function createCommentCard(user){
-
-    //create parent container and adds class='comment__wrapper'
     const cardEl = document.createElement('article');
     cardEl.classList.add('comment__card');
-    //create user name, comment text, date and image
+
     const imgEl = document.createElement('div');
     imgEl.classList.add('comment__card-image');
 
@@ -36,11 +45,11 @@ function createCommentCard(user){
 
     const commentEl = document.createElement('p');
     commentEl.classList.add('comment__text');
-    commentEl.innerText = user.comment;
+    commentEl.innerText = user.Comment;
 
     const dateEl = document.createElement('span');
     dateEl.classList.add('comment__date');
-    dateEl.innerText = `${user.date}`;
+    dateEl.innerText = user.date;
 
     
     textWrapperEl.appendChild(nameEl);
