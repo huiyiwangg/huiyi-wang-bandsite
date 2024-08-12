@@ -1,11 +1,9 @@
 import BandSiteApi from "../scripts/band-site-api.js";
 
-let thing = new BandSiteApi();
-
-const showEl = createDiv('shows__card');
+let bandsiteApi = new BandSiteApi();
 
 async function fetchAndRenderShows(){
-    const shows = await thing.getShows();
+    const shows = await bandsiteApi.getShows();
 
     function render() {
         listEl.innerText = '';
@@ -28,6 +26,7 @@ const listEl=document.getElementsByClassName('shows__container')[0];
 
 function displayShow(show) {
 
+    const showEl = createDiv('shows__card');
     const dateContainer = createDiv('shows__sub-container');
     const dateTitleEl = createDiv('shows__subtitle','DATE');
     const dateEl = createDiv('shows__date', show.date);
@@ -43,8 +42,13 @@ function displayShow(show) {
     
 
     const buttonEl = document.createElement('button');
-    buttonEl.innerHTML = 'BUY TICKETS';
-    
+    buttonEl.innerText = 'BUY TICKETS';
+
+    function handleButtonClick(){
+        showEl.classList.add('shows__card--active')
+    }
+
+    buttonEl.addEventListener('click',handleButtonClick)
 
     listEl.append(showEl);
 
@@ -63,13 +67,3 @@ function displayShow(show) {
     showEl.append(buttonEl);
 
 }
-
-
-
-// function render() {
-//     listEl.innerHTML = '';
-//     shows.forEach(displayShow);
-// } 
-
-// render();
-

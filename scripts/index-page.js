@@ -1,15 +1,14 @@
 import BandSiteApi from "../scripts/band-site-api.js";
 
-let thing = new BandSiteApi();
+let bandSiteApi = new BandSiteApi();
 
 const cardEl = document.getElementById('mycomment');
 
 let users =[];
 
 async function fetchAndRenderComments(){
-    const comments = await thing.getComments();
-    console.log(comments);
-
+    const comments = await bandSiteApi.getComments();
+    comments.sort((a,b) =>new Date(b.date) - new Date(a.date));
     users = comments;
 
     function render() {
@@ -39,7 +38,7 @@ function createCommentCard(user){
     const textWrapperEl = document.createElement('div');
     textWrapperEl.classList.add('comment__text-wrapper');
 
-    const nameEl = document.createElement('h3');
+    const nameEl = document.createElement('div');
     nameEl.classList.add('comment__name');
     nameEl.innerText = user.name;
 
@@ -49,7 +48,7 @@ function createCommentCard(user){
 
     const dateEl = document.createElement('span');
     dateEl.classList.add('comment__date');
-    dateEl.innerText = user.date;
+    dateEl.innerText = new Date(user.date).toLocaleString().split(',')[0];
 
     
     textWrapperEl.appendChild(nameEl);
@@ -75,28 +74,42 @@ function renderUser(){
 }
 
 
-function handleFormSubmit(e){
+async function handleFormSubmit(e){
     e.preventDefault();
-    console.log(e.target.userName.value);
-    console.log(e.target.userComment.value);
+
+    const userNameInput = e.target.userName;
+    const userCommentInput = e.target.userComment;
+
+    userNameInput.classList.remove('comment__area--invalid');
+    userCommentInput.classList.remove('comment__area--invalid');
+
+    if (!userNameInput.checkValidity()) {
+        userNameInput.classList.add('comment__area--invalid');
+    }
+    
+    if (!userCommentInput.checkValidity()) {
+        userCommentInput.classList.add('comment__area--invalid');
+    }
+
+    if (!userNameInput.checkValidity() || !userCommentInput.checkValidity()) {
+        return;
+    }
+
+    await bandSiteApi.postComment(userNameInput.value,userCommentInput.value);
 
     const cardData = {
         name: e.target.userName.value,
         date: new Date().toLocaleDateString('en-US'),
-        comment: e.target.userComment.value,
+        Comment: e.target.userComment.value,
     }
 
 
-    users.push(cardData);
-    users.sort((a,b) =>new Date(b.date) - new Date(a.date));
-    console.log(users);
+    users.unshift(cardData);
     renderUser();
 
-    e.target.userName.value = '';
-    e.target.userComment.value = '';
+    userNameInput.value = '';
+    userCommentInput.value = '';
 }
 
 const formEl = document.getElementById('user-form');
 formEl.addEventListener('submit', handleFormSubmit);
-
-renderUser();

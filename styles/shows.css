@@ -145,7 +145,11 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 0;
+}
+@media screen and (min-width: 80rem) {
+  .nav {
+    margin-left: 5rem;
+  }
 }
 .nav__background {
   background-color: #323232;
@@ -185,7 +189,7 @@ body {
 }
 .nav__list--item:hover, .nav__list--item.active {
   font-weight: 400;
-  border-bottom: 0.3rem solid white;
+  border-bottom: 0.3rem solid #fafafa;
 }
 .nav__list--item:hover a, .nav__list--item.active a {
   color: #ffffff;
@@ -215,7 +219,8 @@ body {
   background: url(../asset/images/hero-shows.jpg);
   background-size: cover;
   position: relative;
-  height: 40vh;
+  background-position: center;
+  height: 45vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -236,19 +241,26 @@ body {
 }
 @media screen and (min-width: 48rem) {
   .hero {
-    height: 60vh;
+    height: 54vh;
+    max-height: 64vh;
   }
 }
 @media screen and (min-width: 80rem) {
   .hero {
     flex-direction: row;
     height: 65vh;
+    max-height: 70vh;
   }
 }
 .hero__text {
   color: #ffffff;
   width: 100%;
   z-index: 2;
+}
+@media screen and (min-width: 80rem) {
+  .hero__text {
+    margin-left: 13rem;
+  }
 }
 .hero__text--detail {
   width: 60%;
@@ -282,21 +294,39 @@ body {
   .hero__song {
     align-self: center;
     margin: 1rem;
+    margin-right: 13rem;
   }
 }
 
 .shows {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 80rem) {
+  .shows {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 .shows__container {
   width: 100%;
   position: relative;
+}
+@media screen and (min-width: 80rem) {
+  .shows__container {
+    width: 80%;
+  }
 }
 .shows__card {
   width: 100%;
   border-bottom: 0.0625rem solid #e1e1e1;
 }
 .shows__card:hover {
+  background-color: #fafafa;
+}
+.shows__card--active {
   background-color: #e1e1e1;
 }
 @media screen and (min-width: 48rem) {
