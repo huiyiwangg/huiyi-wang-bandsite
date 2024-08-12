@@ -146,7 +146,11 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 0;
+}
+@media screen and (min-width: 80rem) {
+  .nav {
+    margin-left: 5rem;
+  }
 }
 .nav__background {
   background-color: #323232;
@@ -162,11 +166,15 @@ body {
   height: auto;
   width: 100%;
 }
+@media screen and (min-width: 48rem) {
+  .nav__logo {
+    padding: 1rem;
+  }
+}
 .nav__list {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
-  padding: 0;
   margin: auto;
 }
 @media screen and (min-width: 48rem) {
@@ -211,8 +219,9 @@ body {
 .hero {
   background: url(../asset/images/hero-bio.jpg);
   background-size: cover;
+  background-position: center;
   position: relative;
-  height: 40vh;
+  height: 30vh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -230,10 +239,25 @@ body {
   background: rgba(50, 50, 50, 0.5);
   z-index: 1;
 }
+@media screen and (min-width: 48rem) {
+  .hero {
+    height: 50vh;
+    padding: 0 2.25rem;
+  }
+}
+@media screen and (min-width: 80rem) {
+  .hero {
+    height: 80vh;
+  }
+}
 .hero__text {
-  padding-left: 1rem;
   color: #ffffff;
   z-index: 2;
+}
+@media screen and (min-width: 80rem) {
+  .hero__text {
+    margin-left: 13rem;
+  }
 }
 
 .intro__details--container {
@@ -293,7 +317,7 @@ body {
   padding-left: 0;
 }
 .gallery__background {
-  background-color: #e1e1e1;
+  background-color: #fafafa;
 }
 .gallery__container {
   display: flex;
@@ -326,8 +350,25 @@ body {
 }
 
 .comment {
+  display: grid;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+.comment__header {
+  align-self: flex-start;
+}
+.comment__all {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+@media screen and (min-width: 80rem) {
+  .comment__all {
+    justify-self: center;
+    width: 50%;
+  }
 }
 .comment__divider {
   height: 1px;
@@ -346,7 +387,7 @@ body {
   .comment__img {
     width: 3rem;
     height: 3rem;
-    margin-top: 2rem;
+    margin: 2rem 0 0 1.25rem;
     align-self: flex-start;
   }
 }
@@ -361,7 +402,7 @@ body {
   margin: 0;
   width: 100%;
   justify-content: space-evenly;
-  border-bottom: 0.0625rem solid #afafaf;
+  border-bottom: 0.0625rem solid #e1e1e1;
 }
 .comment__input-container {
   display: flex;
@@ -370,6 +411,10 @@ body {
   align-self: flex-end;
   justify-self: flex-end;
   padding: auto;
+}
+.comment__input-container input.validated,
+.comment__input-container textarea.validated {
+  border-color: #D22D2D;
 }
 .comment__input-container button {
   margin: 1rem 0;
@@ -390,15 +435,12 @@ body {
   padding: 0.75rem;
   border-radius: 0.25rem;
 }
-.comment__area:valid {
-  border-color: #e1e1e1;
-}
-.comment__area:invalid {
-  border-color: #D22D2D;
-}
 .comment__area:hover, .comment__area:focus {
   border-color: #323232;
   outline: none;
+}
+.comment__area--invalid {
+  border-color: #D22D2D;
 }
 @media screen and (min-width: 48rem) {
   .comment__area {
@@ -420,8 +462,7 @@ body {
   width: 100%;
   gap: 1rem;
   border-bottom: 0.0625rem solid #e1e1e1;
-  margin: 0 1rem 1rem 1rem;
-  justify-content: space-between;
+  justify-content: flex-start;
   position: relative;
   overflow: auto;
 }
@@ -435,14 +476,14 @@ body {
   height: 2.25rem;
   border-radius: 50%;
   background-color: #e1e1e1;
-  margin-top: 1rem;
+  margin: 1rem 0 1rem 0.5rem;
   flex-shrink: 0;
 }
 @media screen and (min-width: 48rem) {
   .comment__card-image {
     width: 3rem;
     height: 3rem;
-    margin: 2rem 0 2rem 2rem;
+    margin: 2rem 1rem 2rem 2.5rem;
     align-self: flex-start;
   }
 }
@@ -456,15 +497,31 @@ body {
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
+  margin: 1rem 0;
 }
 @media screen and (min-width: 48rem) {
   .comment__right-container {
     width: 80%;
   }
 }
-.comment__text {
-  width: 90%;
-  padding-bottom: 1rem;
+.comment__name {
+  font-weight: 600;
+}
+@media screen and (min-width: 48rem) {
+  .comment__name {
+    margin-top: 1rem;
+  }
+}
+@media screen and (min-width: 48rem) {
+  .comment__text {
+    width: 90%;
+    padding-bottom: 1rem;
+  }
+}
+@media screen and (min-width: 48rem) {
+  .comment__date {
+    margin-top: 1rem;
+  }
 }
 .comment__text-wrapper {
   display: flex;
@@ -517,11 +574,11 @@ body {
 }
 @media screen and (min-width: 48rem) {
   .footer__social--header {
-    width: 15.5rem;
+    width: 16rem;
     padding-top: 2.25rem;
   }
 }
-@media screen and (min-width: 48rem) {
+@media screen and (min-width: 80rem) {
   .footer__social--header {
     width: 20rem;
   }
@@ -541,7 +598,7 @@ body {
   flex-direction: row;
 }
 .footer__media--container {
-  width: 25%;
+  width: 30%;
   height: auto;
   justify-content: space-between;
   display: flex;

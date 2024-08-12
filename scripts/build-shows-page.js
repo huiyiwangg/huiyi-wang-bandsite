@@ -1,36 +1,19 @@
-const shows =[
-    {
-        date: 'Mon Sept 09 2024',
-        venue:'Ronald Lane',
-        location: 'San Francisco, CA',
-    },
-    {
-        date: 'Tue Sept 17 2024',
-        venue:'Pier 3 East',
-        location: 'San Francisco, CA',
-    },
-    {
-        date: 'Sat Oct 12 2024',
-        venue:'View Lounge',
-        location: 'San Francisco, CA',
-    },
-    {
-        date: 'Sat Nov 16 2024',
-        venue:'Hyatt Agency',
-        location: 'San Francisco, CA',
-    },
-    {
-        date: 'Fri Nov 29 2024',
-        venue:'Moscow Center',
-        location: 'San Francisco, CA',
-    },
-    {
-        date: 'Wed Dec 18 2024',
-        venue:'Press Club',
-        location: 'San Francisco, CA',
-    },
+import BandSiteApi from "../scripts/band-site-api.js";
 
-]
+let bandsiteApi = new BandSiteApi();
+
+async function fetchAndRenderShows(){
+    const shows = await bandsiteApi.getShows();
+
+    function render() {
+        listEl.innerText = '';
+        shows.forEach(displayShow);
+    } 
+    
+    render();    
+}
+fetchAndRenderShows()
+
 
 function createDiv(className, text = "") {
     const div = document.createElement("div");
@@ -42,8 +25,8 @@ function createDiv(className, text = "") {
 const listEl=document.getElementsByClassName('shows__container')[0];
 
 function displayShow(show) {
-    const showEl = createDiv('shows__card');
 
+    const showEl = createDiv('shows__card');
     const dateContainer = createDiv('shows__sub-container');
     const dateTitleEl = createDiv('shows__subtitle','DATE');
     const dateEl = createDiv('shows__date', show.date);
@@ -59,8 +42,13 @@ function displayShow(show) {
     
 
     const buttonEl = document.createElement('button');
-    buttonEl.innerHTML = 'BUY TICKETS';
-    
+    buttonEl.innerText = 'BUY TICKETS';
+
+    function handleButtonClick(){
+        showEl.classList.add('shows__card--active')
+    }
+
+    buttonEl.addEventListener('click',handleButtonClick)
 
     listEl.append(showEl);
 
@@ -79,13 +67,3 @@ function displayShow(show) {
     showEl.append(buttonEl);
 
 }
-
-
-
-function render() {
-    listEl.innerHTML = '';
-    shows.forEach(displayShow);
-} 
-
-render();
-

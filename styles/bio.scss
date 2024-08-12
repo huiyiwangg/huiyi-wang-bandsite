@@ -18,7 +18,10 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 0;
+
+  @include desktop{
+    margin-left: 5rem;
+  }
 
   &__background {
     background-color: $primary-black;
@@ -35,13 +38,16 @@ body {
       height: auto;
       width: 100%;
     }
+
+    @include tablet{
+      padding: 1rem;
+    }
   }
 
   &__list {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-    padding: 0;
     margin: auto;
 
     @include tablet {
@@ -91,8 +97,9 @@ body {
 .hero {
   background: url(../asset/images/hero-bio.jpg);
   background-size: cover;
+  background-position: center;
   position: relative;
-  height: 40vh;
+  height: 30vh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -111,10 +118,22 @@ body {
     z-index: 1;
   }
 
+  @include tablet{
+    height: 50vh;
+    padding: 0 2.25rem; 
+  }
+
+  @include desktop{
+    height: 80vh;
+  }
+
   &__text {
-    padding-left: 1rem;
     color: $primary-white;
-    z-index: 2;
+    z-index: 2;  
+
+    @include desktop{
+      margin-left: 13rem;
+    }
   }
 }
 
@@ -182,7 +201,7 @@ body {
   }
 
   &__background {
-    background-color: $secondary-silver;
+    background-color: $secondary-white;
   }
 
   &__container {
@@ -217,9 +236,25 @@ body {
 }
 
 .comment {
-  display: flex;
+  display: grid;
   flex-direction: column;
-  // padding: 0 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+
+  &__header{
+    align-self: flex-start;
+  }
+
+  &__all{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    @include desktop{
+      justify-self: center;
+      width: 50%;
+    }
+  }
 
   &__divider {
     height: 1px;
@@ -238,7 +273,7 @@ body {
     @include tablet {
       width: 3rem;
       height: 3rem;
-      margin-top: 2rem;
+      margin: 2rem 0 0 1.25rem;
       align-self: flex-start;
     }
   }
@@ -255,7 +290,7 @@ body {
     margin: 0;
     width: 100%;
     justify-content: space-evenly;
-    border-bottom: 0.0625rem solid $primary-silver;
+    border-bottom: 0.0625rem solid $secondary-silver;;
   }
 
   &__input-container {
@@ -265,6 +300,12 @@ body {
     align-self: flex-end;
     justify-self: flex-end;
     padding: auto;
+
+    input.validated,
+    textarea.validated {
+      border-color: $invalid-red;
+    }
+    
 
     button {
       margin: 1rem 0;
@@ -286,19 +327,16 @@ body {
     padding: 0.75rem;
     border-radius: 0.25rem;
 
-    &:valid {
-      border-color: $secondary-silver;
-    }
-
-    &:invalid {
-      border-color: $invalid-red;
-    }
-    
     &:hover,
     &:focus {
       border-color: $primary-black;
       outline: none;
     }
+  
+    &--invalid {
+      border-color: $invalid-red;
+    }
+
 
     @include tablet {
       min-height: 3rem;
@@ -322,8 +360,7 @@ body {
     width: 100%;
     gap: 1rem;
     border-bottom: 0.0625rem solid $secondary-silver;
-    margin: 0 1rem 1rem 1rem;
-    justify-content: space-between;
+    justify-content: flex-start;
     position: relative;
     overflow: auto;
 
@@ -337,13 +374,13 @@ body {
     height: 2.25rem;
     border-radius: 50%;
     background-color: $secondary-silver;
-    margin-top: 1rem;
+    margin: 1rem 0 1rem 0.5rem;
     flex-shrink: 0;
 
     @include tablet {
       width: 3rem;
       height: 3rem;
-      margin: 2rem 0 2rem 2rem;
+      margin: 2rem 1rem 2rem 2.5rem;
       align-self: flex-start;
     }
 
@@ -357,15 +394,30 @@ body {
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
+    margin: 1rem 0;
 
     @include tablet {
       width: 80%;
     }
   }
 
+  &__name{
+    font-weight: 600;
+    @include tablet{
+      margin-top: 1rem;
+    }
+  }
+
   &__text {
+    @include tablet{
     width: 90%;
-    padding-bottom: 1rem;
+    padding-bottom: 1rem;}
+  }
+
+  &__date{
+    @include tablet{
+      margin-top: 1rem;
+    }
   }
 
   &__text-wrapper {
@@ -419,11 +471,11 @@ body {
       padding-top: 1rem;
 
       @include tablet {
-        width: 15.5rem;
+        width: 16rem;
         padding-top: 2.25rem;
       }
 
-      @include tablet {
+      @include desktop {
         width: 20rem;
       }
     }
@@ -444,7 +496,7 @@ body {
     flex-direction: row;
 
     &--container {
-      width: 25%;
+      width: 30%;
       height: auto;
       justify-content: space-between;
       display: flex;

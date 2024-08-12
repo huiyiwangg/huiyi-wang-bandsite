@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bandsite Shows Page</title>
     <link href="../styles/shows.css" rel="stylesheet" />
-    <script src="../scripts/build-shows-page.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="../scripts/build-shows-page.js" defer></script>
     <style>
     </style>
 </head>
 <body>
-    <section class="nav__background">
+    <header class="nav__background">
         <div class="nav container">
             <div class="nav__logo">
                 <a href="../index.html"><img class="nav__logo--image sitelogo" src="../asset/logos/Logo-bandsite.svg" alt= "band bees"></a>
             </div>
-            <ul class="nav__list">
-                <li class="nav__list--item"><a href="../index.html">Biography</a></li>
-                <li class="nav__list--item active"><a href="/shows.html">Shows</a></li>
-            </ul>
+                <ul class="nav__list">
+                    <li class="nav__list--item"><a href="../index.html">Biography</a></li>
+                    <li class="nav__list--item active"><a href="/shows.html">Shows</a></li>
+                </ul>
         </div>
-    </section>
+    </header>
 
     <section class="hero__background">
         <div class="hero container">
